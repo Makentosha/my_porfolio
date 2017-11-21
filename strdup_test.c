@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memchr.c                                           :+:      :+:    :+:   */
+/*   strdup.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ivolosci <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/20 20:42:52 by ivolosci          #+#    #+#             */
-/*   Updated: 2017/11/20 20:42:57 by ivolosci         ###   ########.fr       */
+/*   Created: 2017/11/21 19:29:01 by ivolosci          #+#    #+#             */
+/*   Updated: 2017/11/21 19:29:03 by ivolosci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,32 @@
 #include <stdio.h>
 #include <string.h>
 
-void *	ft_memchr(const void *s, int c, size_t n)
+#include <stdlib.h>
+
+char *	ft_strdup(const char *s1)
 {
-	if (n == 0)
-		return NULL;
+	int i;
+	char *str;
 
-	char *src;
-
-	src = (char *)s;
-	while(--n)
+	i = 0;
+	while (s1[i])
+		i++;
+	printf("i: %d\n", i);
+	str = (char *)malloc(i * sizeof(char));
+	i = 0;
+	while (s1[i])
 	{
-		if (*src++ == c)
-			return --src;
+		str[i] = s1[i];
+		i++;
 	}
-	if (*src++ == c)
-		return --src;
-	return NULL;
+	return str;
 }
 
-int	main(void)
+int main(void)
 {
-	unsigned char src[11] = "hearch here";
-	char *chr1 = ft_memchr(src, 'h', 0);
-	char *chr2 = memchr(src, 'h', 0);
-	printf("ft_result: %s\n", chr1);
-	printf("   result: %s\n", chr2);
-	return 0;
+	char src[100] = "duplicate this pice of shit!!!";
+	char *s1 = ft_strdup(src);
+	char *s2 = strdup(src);
+	printf("ft_strdup: %s\n", s1);
+	printf("   strdup: %s\n", s2);
 }

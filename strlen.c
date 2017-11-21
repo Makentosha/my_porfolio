@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memchr.c                                           :+:      :+:    :+:   */
+/*   strlen.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ivolosci <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/20 20:42:52 by ivolosci          #+#    #+#             */
-/*   Updated: 2017/11/20 20:42:57 by ivolosci         ###   ########.fr       */
+/*   Created: 2017/11/21 19:16:50 by ivolosci          #+#    #+#             */
+/*   Updated: 2017/11/21 19:16:51 by ivolosci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,20 @@
 #include <stdio.h>
 #include <string.h>
 
-void *	ft_memchr(const void *s, int c, size_t n)
+size_t	ft_strlen(const char *s)
 {
-	if (n == 0)
-		return NULL;
+	int i;
 
-	char *src;
-
-	src = (char *)s;
-	while(--n)
-	{
-		if (*src++ == c)
-			return --src;
-	}
-	if (*src++ == c)
-		return --src;
-	return NULL;
+	i = 0;
+	while (s[i])
+		i++;
+	return i;
 }
 
-int	main(void)
+int main(void)
 {
-	unsigned char src[11] = "hearch here";
-	char *chr1 = ft_memchr(src, 'h', 0);
-	char *chr2 = memchr(src, 'h', 0);
-	printf("ft_result: %s\n", chr1);
-	printf("   result: %s\n", chr2);
+	char str[100] = "-1";
+	printf("ft_strlen: %lu\n", ft_strlen(str));
+	printf("ft_strlen: %lu\n",    strlen(str));
 	return 0;
 }

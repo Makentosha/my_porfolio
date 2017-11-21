@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memchr.c                                           :+:      :+:    :+:   */
+/*   memcmp.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ivolosci <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/20 20:42:52 by ivolosci          #+#    #+#             */
-/*   Updated: 2017/11/20 20:42:57 by ivolosci         ###   ########.fr       */
+/*   Created: 2017/11/21 18:30:44 by ivolosci          #+#    #+#             */
+/*   Updated: 2017/11/21 18:30:47 by ivolosci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,35 @@
 #include <stdio.h>
 #include <string.h>
 
-void *	ft_memchr(const void *s, int c, size_t n)
+int		ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	if (n == 0)
-		return NULL;
+	char *str1;
+	char *str2;
+	size_t i;
 
-	char *src;
+	i = 0;	
+	str1 = (char *)s1;
+	str2 = (char *)s2;
+	if (str1 == str2)
+		return (0);
 
-	src = (char *)s;
-	while(--n)
+	while(i < n)
 	{
-		if (*src++ == c)
-			return --src;
+		if(str1[i] != str2[i])
+		{
+			return (str1[i] - str2[i]);
+		}
+		i++;
 	}
-	if (*src++ == c)
-		return --src;
-	return NULL;
+
+	return (str1[n] - str2[n]);
 }
 
-int	main(void)
+int main(void)
 {
-	unsigned char src[11] = "hearch here";
-	char *chr1 = ft_memchr(src, 'h', 0);
-	char *chr2 = memchr(src, 'h', 0);
-	printf("ft_result: %s\n", chr1);
-	printf("   result: %s\n", chr2);
+	const char arr1[100] = "1234";
+	const char arr2[100] = "1234567890";
+	printf("ft_memcmp: %d\n", ft_memcmp(arr1, arr2, 9));
+	printf("   memcmp: %d\n",    memcmp(arr1, arr2, 9));
 	return 0;
 }

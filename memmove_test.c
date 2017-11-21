@@ -19,17 +19,18 @@ void *	ft_memmove(void * dst, const void * src, size_t n)
 	if (n == 0)
 		return(dst);
 
-	char	*chr1;
-	char	*chr2;
+	char *dst1;
+	char *src1;
 
-	chr1 = (char *)src;
-	chr2 = (char *)dst;
-
-	while(--n)
+	dst1 = (char*)dst;
+	src1 = (char*)src;
+	for (size_t i = 0; i < n; i++)
 	{
-		*chr2++ = *chr1++;
+		dst1[i] = src1[i];
+		printf ("src: %c\n", dst1[i]);
+		printf ("dst: %c\n", src1[i]);
 	}
-	*chr2 = *chr1;
+
 	return (dst);
 }
 
@@ -37,8 +38,8 @@ int		main (void)
 {
 	unsigned char src1[50]="1234567890";
 	unsigned char src2[50]="1234567890";
-	ft_memmove (&src1[4], &src1[3], 4);
-	memmove (&src2[4], &src2[3], 4);
+	ft_memmove (&src1[4], &src1[1], 9);
+	memmove (&src2[4], &src2[1], 9);
 	printf ("ft_memmove: %s\n", src1);
 	printf ("   memmove: %s\n", src2);
 

@@ -1,43 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memchr.c                                           :+:      :+:    :+:   */
+/*   strcpy.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ivolosci <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/20 20:42:52 by ivolosci          #+#    #+#             */
-/*   Updated: 2017/11/20 20:42:57 by ivolosci         ###   ########.fr       */
+/*   Created: 2017/11/21 20:37:34 by ivolosci          #+#    #+#             */
+/*   Updated: 2017/11/21 20:37:36 by ivolosci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include <stdio.h>
 #include <string.h>
 
-void *	ft_memchr(const void *s, int c, size_t n)
+char *	ft_strcpy(char * dst, const char * src)
 {
-	if (n == 0)
-		return NULL;
+	int i;
 
-	char *src;
-
-	src = (char *)s;
-	while(--n)
+	i = 0;
+	while (src[i])
 	{
-		if (*src++ == c)
-			return --src;
+		dst[i] = src[i];
+		i++;
 	}
-	if (*src++ == c)
-		return --src;
-	return NULL;
+	dst[i] = src[i];
+	return dst;
 }
 
-int	main(void)
+int main(void)
 {
-	unsigned char src[11] = "hearch here";
-	char *chr1 = ft_memchr(src, 'h', 0);
-	char *chr2 = memchr(src, 'h', 0);
-	printf("ft_result: %s\n", chr1);
-	printf("   result: %s\n", chr2);
-	return 0;
+	char src[100] = "test";
+	char dst1[100];
+	char dst2[100];
+
+	ft_strcpy(dst1, src);
+	strcpy(dst2, src);
+	printf("ft_strcpy: %s\n", dst1);
+	printf("   strcpy: %s\n", dst2);
 }

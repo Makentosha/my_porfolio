@@ -1,43 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memchr.c                                           :+:      :+:    :+:   */
+/*   strcat.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ivolosci <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/20 20:42:52 by ivolosci          #+#    #+#             */
-/*   Updated: 2017/11/20 20:42:57 by ivolosci         ###   ########.fr       */
+/*   Created: 2017/11/21 21:24:30 by ivolosci          #+#    #+#             */
+/*   Updated: 2017/11/21 21:24:32 by ivolosci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include <stdio.h>
 #include <string.h>
 
-void *	ft_memchr(const void *s, int c, size_t n)
+char *	ft_strncat(char *s1, const char *s2, size_t n)
 {
-	if (n == 0)
-		return NULL;
+	int i;
+	size_t y;
 
-	char *src;
+	i = 0;
+	y = 0;
 
-	src = (char *)s;
-	while(--n)
+	while(s1[i])
+		i++;
+	
+	while(y < n)
 	{
-		if (*src++ == c)
-			return --src;
+		s1[i] = s2[y];
+		i++;
+		y++;
 	}
-	if (*src++ == c)
-		return --src;
-	return NULL;
+	s1[i] = '\0';
+	return (s1);
 }
 
-int	main(void)
+int main(void)
 {
-	unsigned char src[11] = "hearch here";
-	char *chr1 = ft_memchr(src, 'h', 0);
-	char *chr2 = memchr(src, 'h', 0);
-	printf("ft_result: %s\n", chr1);
-	printf("   result: %s\n", chr2);
+	char str1[15] = "123456";
+	char str2[] = "7890";
+	char str3[15] = "123456";
+	char str4[] = "7890";
+
+	printf("%s\n", ft_strncat(str1, str2, 2));
+	printf("%s\n", strncat(str3, str4, 2));
+
 	return 0;
 }
