@@ -1,41 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strcpy.c                                           :+:      :+:    :+:   */
+/*   strstr.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ivolosci <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/21 20:37:34 by ivolosci          #+#    #+#             */
-/*   Updated: 2017/11/21 20:37:36 by ivolosci         ###   ########.fr       */
+/*   Created: 2017/11/22 21:10:46 by ivolosci          #+#    #+#             */
+/*   Updated: 2017/11/22 21:10:48 by ivolosci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <string.h>
+#include <stdio.h>
 
-char *	ft_strcpy(char * dst, const char * src)
+char *	ft_strstr(const char *big, const char *little)
 {
-	int i;
+	if (!little[0])
+		return ((char *)big);
+	int b;
+	int l;
 
-	i = 0;
-	while (src[i])
+	b = 0;
+	l = 0;
+	while (big[b])
 	{
-		dst[i] = src[i];
-		i++;
+		if (big[b] == little[l])
+		{
+			b++;
+			l++;
+		}
+		if (little[l] == '\0')
+			return
 	}
-	dst[i] = src[i];
-	return dst;
+	return 0;
 }
 
 int main(void)
 {
-	char src[100] = "test";
-	char dst1[100] = "aaaaaaa";
-	char dst2[100] = "aaaaaaa";
+	const char big[] = "1234567890";
+	const char little[] = "567";
 
-	ft_strcpy(dst1, src);
-	strcpy(dst2, src);
-	printf("ft_strcpy: %s\n", dst1);
-	printf("   strcpy: %s\n", dst2);
-	printf("test1: %c\n", dst2[6]);
+	printf("ft_strstr: %s\n", ft_strstr(big, little));
+	printf("   strstr: %s\n",    strstr(big, little));
+	return (0);
 }

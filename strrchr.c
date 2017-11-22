@@ -1,41 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strcpy.c                                           :+:      :+:    :+:   */
+/*   strchr.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ivolosci <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/21 20:37:34 by ivolosci          #+#    #+#             */
-/*   Updated: 2017/11/21 20:37:36 by ivolosci         ###   ########.fr       */
+/*   Created: 2017/11/22 20:18:04 by ivolosci          #+#    #+#             */
+/*   Updated: 2017/11/22 20:18:11 by ivolosci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <string.h>
+#include <stdio.h>
 
-char *	ft_strcpy(char * dst, const char * src)
+char *	ft_strrchr(const char *s, int c)
 {
-	int i;
-
-	i = 0;
-	while (src[i])
+	while(*s)
+		s++;
+	if (c == '\0')
+		return ((char *)s);
+	s--;
+	while (*s)
 	{
-		dst[i] = src[i];
-		i++;
+		if (*s == c)
+			return ((char *)s);
+		s--;
 	}
-	dst[i] = src[i];
-	return dst;
+	return (NULL);
 }
 
 int main(void)
 {
-	char src[100] = "test";
-	char dst1[100] = "aaaaaaa";
-	char dst2[100] = "aaaaaaa";
+	char str[] = "1234567390";
 
-	ft_strcpy(dst1, src);
-	strcpy(dst2, src);
-	printf("ft_strcpy: %s\n", dst1);
-	printf("   strcpy: %s\n", dst2);
-	printf("test1: %c\n", dst2[6]);
+	printf("ft_strrchr: %s\n", ft_strrchr(str, '1'));
+	printf("   strrchr: %s\n", strrchr(str, '1'));
+	return 0;
 }

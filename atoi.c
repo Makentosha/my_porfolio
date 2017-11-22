@@ -1,41 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strcpy.c                                           :+:      :+:    :+:   */
+/*   atoi.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ivolosci <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/21 20:37:34 by ivolosci          #+#    #+#             */
-/*   Updated: 2017/11/21 20:37:36 by ivolosci         ###   ########.fr       */
+/*   Created: 2017/11/22 21:33:47 by ivolosci          #+#    #+#             */
+/*   Updated: 2017/11/22 21:33:52 by ivolosci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include <stdio.h>
-#include <string.h>
 
-char *	ft_strcpy(char * dst, const char * src)
+int		ft_atoi(const char *str)
 {
+	if(str[0] < '0' || str[0] > '9')
+		return (0);
+	int nb;
 	int i;
 
+	nb = 0;
 	i = 0;
-	while (src[i])
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		dst[i] = src[i];
+		nb *= 10;
+		nb += (str[i] - 48);
 		i++;
 	}
-	dst[i] = src[i];
-	return dst;
+	return (nb);
 }
 
-int main(void)
+int		main(void)
 {
-	char src[100] = "test";
-	char dst1[100] = "aaaaaaa";
-	char dst2[100] = "aaaaaaa";
+	char nb[] = "999999999999999999999999999";
+	// int max = 2874919425;
 
-	ft_strcpy(dst1, src);
-	strcpy(dst2, src);
-	printf("ft_strcpy: %s\n", dst1);
-	printf("   strcpy: %s\n", dst2);
-	printf("test1: %c\n", dst2[6]);
+	printf("ft_atoi: %d\n", ft_atoi(nb));
+	printf("   atoi: %d\n", atoi(nb));
+	// printf("    max: %d\n", max);
+	// printf("    max: %d\n", typeof(max));
+	return 0;
 }
