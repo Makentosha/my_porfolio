@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
-# define LIBFT_H
+# define  LIBFT_H
 # include <string.h>
 
 void	*ft_memset(void *b, int c, size_t len);
@@ -30,6 +30,7 @@ char	*ft_strncat(char * s1, const char * s2, size_t n);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strstr(const char *big, const char *little);
+char	*ft_strnstr(const char *big, const char *little, size_t len);
 int		ft_atoi(const char *str);
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
