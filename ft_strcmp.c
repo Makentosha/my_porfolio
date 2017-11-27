@@ -1,65 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ivolosci <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/26 17:17:59 by ivolosci          #+#    #+#             */
-/*   Updated: 2017/11/26 17:18:01 by ivolosci         ###   ########.fr       */
+/*   Created: 2017/11/27 20:29:27 by ivolosci          #+#    #+#             */
+/*   Updated: 2017/11/27 20:29:30 by ivolosci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *big, const char *little, size_t len)
+int		ft_strcmp(const char *s1, const char *s2)
 {
-	if (!little[0])
-		return ((char *)big);
-	size_t b;
-	size_t l;
-	int p;
+	const char *str2;
+	const char *str1;
+	int i;
 
-	b = 0;
-	l = 0;
-	while (big[b])
+	str1 = s1;
+	str2 = s2;
+	if (s1 == s2)
+		return 0;
+	while (s1[i] || s2[i])
 	{
-		if (big[b] == little[l])
+		if (s1[i] != s2[i])
 		{
-			p = b;
-			while (big[b] == little[l] && l <= len)
-			{
-				if (!little[l] || b == len)
-					return ((char *)big + p);
-				b++;
-				l++;
-
-			}
-				if (!little[l] || b == len)
-					return ((char *)big + p);
-			b = p;
-			l = 0;
+			return (s1[i] - s2[i]);
 		}
-		b++;
+		i++;
 	}
 	return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
