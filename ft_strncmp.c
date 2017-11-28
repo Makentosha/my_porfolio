@@ -16,12 +16,12 @@
 
 int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	char *str2;
-	char *str1;
+	unsigned char *str2;
+	unsigned char *str1;
 	size_t i;
 
-	str1 = (char *)s1;
-	str2 = (char *)s2;
+	str1 = (unsigned char *)s1;
+	str2 = (unsigned char *)s2;
 	i = 0;
 	if (s1 == s2)
 		return 0;
@@ -38,9 +38,9 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n)
 
 // int main()
 // {
-// 	char *s1 = "\x12\xff\x65\x12\xbd\xde\xad";
-// 	char *s2 = "\x12\x02";
-
+// 	char *s1 = "\200";
+// 	char *s2 = "\0";
+	
 // 	printf("ft_%d\n", ft_strncmp(s1, s2, 6));
 // 	printf("___%d\n",    strncmp(s1, s2, 6));
 // 	printf("%d\n", ("\xff" - "\x02"));
