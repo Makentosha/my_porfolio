@@ -11,8 +11,8 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
-#include <stdio.h>
+// #include <string.h>
+// #include <stdio.h>
 
 int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {
@@ -43,6 +43,8 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n)
 	
 // 	printf("ft_%d\n", ft_strncmp(s1, s2, 6));
 // 	printf("___%d\n",    strncmp(s1, s2, 6));
-// 	printf("%d\n", ("\xff" - "\x02"));
+// 	int x;
+// 	x = '\200' - '\0';
+// 	printf("%d\n", x);
 // 	return 0;
 // }
