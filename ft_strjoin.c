@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ivolosci <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/27 21:38:24 by ivolosci          #+#    #+#             */
-/*   Updated: 2017/11/27 21:38:26 by ivolosci         ###   ########.fr       */
+/*   Created: 2017/12/01 17:45:41 by ivolosci          #+#    #+#             */
+/*   Updated: 2017/12/01 17:45:44 by ivolosci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-int		ft_strncmp(const char *s1, const char *s2, size_t n)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	while (*s1 && (*s1 == *s2) && (n != 0))
-	{
-		s1++;
-		s2++;
-		n--;
-	}
-	if (n != 0)
-		return (*(unsigned char *)s1 - *(unsigned char *)s2);
-	return 0;
+	char *str;
+	int i;
+	int y;
+
+	if (!s1 || !s2)
+		return NULL;
+
+	str = (char *)malloc(sizeof(char) * 
+		(ft_strlen((char*)s1) + ft_strlen((char*)s2)));
+	if (!str)
+		return NULL;
+	ft_strcpy(str, s1);
+	ft_strcat(str, s2);
+	str[ft_strlen(str)] = '\0';
+	return (str);
 }

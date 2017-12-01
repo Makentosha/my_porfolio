@@ -59,7 +59,9 @@ SRC = ft_memset.c \
 	  ft_strmapi.c \
 	  ft_strequ.c \
 	  ft_strnequ.c \
-	  ft_strsub.c
+	  ft_strsub.c \
+	  ft_strjoin.c \
+	  ft_strtrim.c
 
 OBJ = ft_memset.o \
 	  ft_bzero.o \
@@ -100,17 +102,15 @@ OBJ = ft_memset.o \
 	  ft_strmapi.o \
 	  ft_strequ.o \
 	  ft_strnequ.o \
-	  ft_strsub.o
-
+	  ft_strsub.o \
+	  ft_strjoin.o \
+	  ft_strtrim.o
 
 all: $(NAME)
 
 $(NAME):
 	gcc $(FLAG) -c $(SRC)
 	ar rcs $(NAME) $(OBJ)
-
-copy:
-	cp -f libc-funcs/*.c .
 
 $(OBJ): $(FILES)
 	gcc $(CFLAGS) $(FILES)
