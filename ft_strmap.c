@@ -15,15 +15,15 @@
 
 char	*ft_strmap(char const *s, char (*f)(char))
 {
-	char *chr;
-	int i;
+	char	*chr;
+	int		i;
 
-	if(!s || !f)
+	if (!s || !f)
 		return (NULL);
 	i = 0;
 	chr = (char*)malloc(ft_strlen(s) + 1);
 	if (!chr)
-		return chr;
+		return (chr);
 	while (s[i])
 	{
 		chr[i] = f(s[i]);

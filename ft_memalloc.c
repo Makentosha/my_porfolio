@@ -13,13 +13,13 @@
 #include "libft.h"
 #include <stdlib.h>
 
-void * ft_memalloc(size_t size)
+void	*ft_memalloc(size_t size)
 {
 	void *chr;
 
 	chr = malloc(size);
 	if (!chr)
-		return NULL;
+		return (NULL);
 	ft_memset(chr, '\0', size);
 	return (chr);
 }

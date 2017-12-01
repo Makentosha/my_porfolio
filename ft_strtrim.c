@@ -22,11 +22,9 @@ char	*ft_strtrim(char const *s)
 		return (NULL);
 	if (!*s)
 		return (ft_strnew(0));
-
 	start = 0;
 	while (s[start] == ' ' || s[start] == '\n' || s[start] == '\t')
 		start++;
-
 	len = ft_strlen(s) - 1;
 	if (start == len + 1)
 		return (ft_strnew(0));
@@ -34,7 +32,6 @@ char	*ft_strtrim(char const *s)
 		return (NULL);
 	while (s[len] == ' ' || s[len] == '\n' || s[len] == '\t')
 		len--;
-
 	len = len - start + 1;
 	return ((char *)ft_strsub(s, start, len));
 }

@@ -12,14 +12,14 @@
 
 #include "libft.h"
 
-char *	ft_strstr(const char *big, const char *little)
+char	*ft_strstr(const char *big, const char *little)
 {
-	if (!little[0])
-		return ((char *)big);
 	int b;
 	int l;
 	int p;
 
+	if (!little[0])
+		return ((char *)big);
 	b = 0;
 	l = 0;
 	while (big[b])
@@ -39,5 +39,5 @@ char *	ft_strstr(const char *big, const char *little)
 		}
 		b++;
 	}
-	return 0;
+	return (0);
 }
