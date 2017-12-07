@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strlen.c                                           :+:      :+:    :+:   */
+/*   ft_lstadd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ivolosci <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/19 13:49:40 by ivolosci          #+#    #+#             */
-/*   Updated: 2017/11/19 13:49:43 by ivolosci         ###   ########.fr       */
+/*   Created: 2017/12/07 22:02:22 by ivolosci          #+#    #+#             */
+/*   Updated: 2017/12/07 22:02:24 by ivolosci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t n)
+void	ft_lstadd(t_list **alst, t_list *new)
 {
-	char	*d;
-	char	*s;
+	t_list	**obj;
 
-	d = (char *)dst;
-	s = (char *)src;
-	if (src < dst)
-		while (n--)
-			d[n] = s[n];
-	else
-		ft_memcpy(d, s, n);
-	return (dst);
+	if (!alst)
+		return ;
+	obj = alst;
+	new->next = *alst;
+	*obj = new;
 }

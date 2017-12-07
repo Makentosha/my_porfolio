@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strlen.c                                           :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ivolosci <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/19 13:49:40 by ivolosci          #+#    #+#             */
-/*   Updated: 2017/11/19 13:49:43 by ivolosci         ###   ########.fr       */
+/*   Created: 2017/12/07 20:40:56 by ivolosci          #+#    #+#             */
+/*   Updated: 2017/12/07 20:40:58 by ivolosci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-void	*ft_memmove(void *dst, const void *src, size_t n)
+t_list	*ft_lstnew(void const *content, size_t content_size)
 {
-	char	*d;
-	char	*s;
+	t_list	*obj;
 
-	d = (char *)dst;
-	s = (char *)src;
-	if (src < dst)
-		while (n--)
-			d[n] = s[n];
+	obj = (t_list*)malloc(sizeof(t_list));
+	if (!obj)
+		return (NULL);
+	if (!content)
+	{
+		obj->content_size = 0;
+		obj->content = 0;
+	}
 	else
-		ft_memcpy(d, s, n);
-	return (dst);
+	{
+		obj->content_size = content_size;
+		obj->content = (void*)malloc(sizeof(void) * content_size);
+		obj->content = ft_memcpy(obj->content, content, content_size);
+	}
+	obj->next = 0;
+	return (obj);
 }

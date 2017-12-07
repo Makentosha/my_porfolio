@@ -27,13 +27,9 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 		if (big[b] == little[l])
 		{
 			p = b;
-			while (big[b] == little[l] && b <= len)
-			{
+			while (big[++b] == little[++l] && b <= len)
 				if (!little[l] && b <= len)
 					return ((char *)big + p);
-				b++;
-				l++;
-			}
 			if (!little[l] || b == len)
 				return ((char *)big + p);
 			b = p;

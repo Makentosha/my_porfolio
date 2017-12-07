@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strlen.c                                           :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ivolosci <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/19 13:49:40 by ivolosci          #+#    #+#             */
-/*   Updated: 2017/11/19 13:49:43 by ivolosci         ###   ########.fr       */
+/*   Created: 2017/12/03 19:01:45 by ivolosci          #+#    #+#             */
+/*   Updated: 2017/12/03 19:01:46 by ivolosci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <unistd.h>
 
-void	*ft_memmove(void *dst, const void *src, size_t n)
+void	ft_putchar_fd(char c, int fd)
 {
-	char	*d;
-	char	*s;
+	unsigned char	chr;
 
-	d = (char *)dst;
-	s = (char *)src;
-	if (src < dst)
-		while (n--)
-			d[n] = s[n];
-	else
-		ft_memcpy(d, s, n);
-	return (dst);
+	chr = (unsigned char)c;
+	write(fd, (void*)&chr, 1);
 }

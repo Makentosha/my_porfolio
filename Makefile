@@ -61,7 +61,23 @@ SRC = ft_memset.c \
 	  ft_strnequ.c \
 	  ft_strsub.c \
 	  ft_strjoin.c \
-	  ft_strtrim.c
+	  ft_strtrim.c \
+	  ft_strsplit.c \
+	  ft_itoa.c \
+	  ft_putchar.c \
+	  ft_putstr.c \
+	  ft_putendl.c \
+	  ft_putnbr.c \
+	  ft_putstr_fd.c \
+	  ft_putchar_fd.c \
+	  ft_putendl_fd.c \
+	  ft_lstnew.c \
+	  ft_lstdelone.c \
+	  ft_lstdel.c \
+	  ft_lstadd.c \
+	  ft_lstiter.c \
+	  ft_lstmap.c
+
 
 OBJ = ft_memset.o \
 	  ft_bzero.o \
@@ -104,7 +120,23 @@ OBJ = ft_memset.o \
 	  ft_strnequ.o \
 	  ft_strsub.o \
 	  ft_strjoin.o \
-	  ft_strtrim.o
+	  ft_strtrim.o \
+	  ft_strsplit.o \
+	  ft_itoa.o \
+	  ft_putchar.o \
+	  ft_putstr.o \
+	  ft_putendl.o \
+	  ft_putnbr.o \
+	  ft_putstr_fd.o \
+	  ft_putchar_fd.o \
+	  ft_putendl_fd.o \
+	  ft_lstnew.o \
+	  ft_lstdelone.o \
+	  ft_lstdel.o \
+	  ft_lstadd.o \
+	  ft_lstiter.o \
+	  ft_lstmap.o
+	  
 
 all: $(NAME)
 
@@ -114,6 +146,9 @@ $(NAME):
 
 $(OBJ): $(FILES)
 	gcc $(CFLAGS) $(FILES)
+
+copy:
+	cp -f libc-funcs/*.c
 
 clean:
 	rm -f $(OBJ)
