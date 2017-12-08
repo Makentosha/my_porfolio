@@ -1,40 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ivolosci <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/07 23:01:14 by ivolosci          #+#    #+#             */
-/*   Updated: 2017/12/07 23:01:15 by ivolosci         ###   ########.fr       */
+/*   Created: 2017/12/08 18:08:00 by ivolosci          #+#    #+#             */
+/*   Updated: 2017/12/08 18:08:02 by ivolosci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
+void	ft_putnbr_fd(int n, int fd)
 {
-	t_list *ptr;
-	t_list *ret;
-	t_list *list;
-
-	if (!lst)
-		return (NULL);
-	ptr = f(lst);
-	if ((ret = ft_lstnew(ptr->content, ptr->content_size)) == 0)
-		return (0);
-	list = ret;
-	lst = lst->next;
-	while (lst)
+	if (n == -2147483648)
+		ft_putstr_fd("-2147483648", fd);
+	else
 	{
-		ptr = f(lst);
-		if ((ret->next = ft_lstnew(ptr->content, ptr->content_size)) != 0)
+		if (n < 0)
 		{
-			ret = ret->next;
-			lst = lst->next;
+			ft_putchar_fd('-', fd);
+			ft_putnbr_fd(-n, fd);
+		}
+		else if (n > 9)
+		{
+			ft_putnbr_fd(n / 10, fd);
+			ft_putnbr_fd(n % 10, fd);
 		}
 		else
-			return (0);
+		{
+			ft_putchar_fd(n + '0', fd);
+		}
 	}
-	return (list);
 }

@@ -76,7 +76,14 @@ SRC = ft_memset.c \
 	  ft_lstdel.c \
 	  ft_lstadd.c \
 	  ft_lstiter.c \
-	  ft_lstmap.c
+	  ft_lstmap.c \
+	  ft_mysum.c \
+	  ft_putnbr_fd.c \
+	  ft_mysum.c \
+	  ft_mycit.c \
+	  ft_mydif.c \
+	  ft_myprod.c \
+	  ft_myrest.c
 
 
 OBJ = ft_memset.o \
@@ -135,8 +142,14 @@ OBJ = ft_memset.o \
 	  ft_lstdel.o \
 	  ft_lstadd.o \
 	  ft_lstiter.o \
-	  ft_lstmap.o
-	  
+	  ft_lstmap.o \
+	  ft_putnbr_fd.o \
+	  ft_mysum.o \
+	  ft_mycit.o \
+	  ft_mydif.o \
+	  ft_myprod.o \
+	  ft_myrest.o
+
 
 all: $(NAME)
 

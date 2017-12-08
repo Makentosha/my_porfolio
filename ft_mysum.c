@@ -1,25 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_mysum.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ivolosci <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/27 20:29:27 by ivolosci          #+#    #+#             */
-/*   Updated: 2017/11/27 20:29:30 by ivolosci         ###   ########.fr       */
+/*   Created: 2017/12/08 17:18:02 by ivolosci          #+#    #+#             */
+/*   Updated: 2017/12/08 17:18:04 by ivolosci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int		ft_strcmp(const char *s1, const char *s2)
+int		ft_mysum(int a, int b)
 {
-	while (*s1 == *s2)
-	{
-		if (!*s1)
-			return (0);
-		s1++;
-		s2++;
-	}
-	return (*(unsigned char *)s1 - *(unsigned char *)s2);
+	return (a + b);
 }
